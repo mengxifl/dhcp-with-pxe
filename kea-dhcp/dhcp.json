@@ -1,0 +1,72 @@
+
+
+{
+    "Dhcp4": {
+        "interfaces-config": {
+            "interfaces": [
+                "VAR_LISTEN_INTERFACE"
+            ]
+        },
+        "client-classes": [
+            {
+                "name": "XClient_iPXE",
+                "test": "substring(option[77].hex,0,4) == 'iPXE'",
+                "boot-file-name": "VAR_iPXE_NET_BOOT_FILE"
+            },
+            {
+                "name": "UEFI-32-1",
+                "test": "substring(option[60].hex,0,20) == 'PXEClient:Arch:00006'",
+                "boot-file-name": "VAR_UEFI32_BOOT_FILE"
+            },
+            {
+                "name": "UEFI-32-2",
+                "test": "substring(option[60].hex,0,20) == 'PXEClient:Arch:00002'",
+                "boot-file-name": "VAR_UEFI32_BOOT_FILE"
+            },
+            {
+                "name": "UEFI-64-1",
+                "test": "substring(option[60].hex,0,20) == 'PXEClient:Arch:00007'",
+                "boot-file-name": "VAR_UEFI64_BOOT_FILE"
+            },
+            {
+                "name": "UEFI-64-2",
+                "test": "substring(option[60].hex,0,20) == 'PXEClient:Arch:00008'",
+                "boot-file-name": "VAR_UEFI64_BOOT_FILE"
+            },
+            {
+                "name": "UEFI-64-3",
+                "test": "substring(option[60].hex,0,20) == 'PXEClient:Arch:00009'",
+                "boot-file-name": "VAR_UEFI64_BOOT_FILE"
+            },
+            {
+                "name": "Legacy",
+                "test": "substring(option[60].hex,0,20) == 'PXEClient:Arch:00000'",
+                "boot-file-name": "VAR_LEGACY_BOOT_FILE"
+            }
+        ],
+        "subnet4": [
+            {
+                "subnet": "VAR_DHCP_SUBNET",
+                "pools": [
+                    {
+                        "pool": "VAR_ASSIGN_NET_STATMENT"
+                    }
+                ],
+                "option-data": [
+                    {
+                        "name": "routers",
+                        "data": "VAR_ASSIGN_GATEWAY"
+                    },
+                    {
+                        "name": "domain-name-servers",
+                        "data": "VAR_NAME_SERVER"
+                    },
+                    {
+                        "name": "next-server",
+                        "data": "VAR_NEXT_SERVER_IP"
+                    }
+                ]
+            }
+        ]
+    }
+}
