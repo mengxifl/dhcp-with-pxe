@@ -33,7 +33,7 @@ NAME_SERVER='8.8.8.8, 8.8.4.4'
 # nameserver or dns server
 
 iPXE_NET_BOOT_FILE='http://<ServerIP>:<ServerPort>/<path>/<netBootFile>'
-# ipxe file url
+# ipxe file url boot file  netboot.xyz.kpxe I will use 
 
 UEFI32_BOOT_FILE='ipxe-i386.efi'
 # UEFI32 bios use file
@@ -43,5 +43,38 @@ UEFI64_BOOT_FILE='ipxe-x86_64.efi'
 
 LEGACY_BOOT_FILE='undionly.kpxe'
 # LEGACY bios use file
+
+CONFIG_FILE_FULL_PATH="./dhcp.json"
+
+function updateDhcpFile {
+	sed 's@VAR_LISTEN_INTERFACE@'$LISTEN_INTERFACE'@g' -i $1
+
+	sed 's@VAR_NEXT_SERVER_IP@'$NEXT_SERVER_IP'@g' -i $1
+
+	sed 's@VAR_ASSIGN_NET_STATMENT@'$ASSIGN_NET_STATMENT'@g' -i $1
+
+	sed 's@VAR_DHCP_SUBNET@'$DHCP_SUBNET'@g' -i $1
+
+	sed 's@VAR_ASSIGN_GATEWAY@'$ASSIGN_GATEWAY'@g' -i $1
+
+	sed 's@VAR_NAME_SERVER@'$NAME_SERVER'@g' -i $1
+
+	sed 's@VAR_iPXE_NET_BOOT_FILE@'$iPXE_NET_BOOT_FILE'@g' -i $1
+
+	sed 's@VAR_UEFI32_BOOT_FILE@'$UEFI32_BOOT_FILE'@g' -i $1
+
+	sed 's@VAR_UEFI64_BOOT_FILE@'$UEFI64_BOOT_FILE'@g' -i $1
+
+	sed 's@VAR_LEGACY_BOOT_FILE@'$LEGACY_BOOT_FILE'@g' -i $1	
+}
+
+
+function runKeaDHCP {
+	/usr/local/sbin/kea-dhcp4 -c $1
+}
+
+updateDhcpFile "$CONFIG_FILE_FULL_PATH"
+runKeaDHCP "$CONFIG_FILE_FULL_PATH"
 ```
 
+This is a configuration file that allows your DHCP server to run and enables clients to use network boot
