@@ -8,7 +8,9 @@ https://kea.readthedocs.io/en/kea-2.6.1/
 
 Here I only use the basic features. However, some parameters require changes, so I wrote a script to handle this.
 
-All require 
+You must install keadhcp first . We won't confluence there
+
+I use container to run this server . It must add `--network=host` parms
 
 ```bash
 #!/bin/bash
@@ -83,7 +85,7 @@ This is a configuration file that allows your DHCP server to run and enables cli
 # ddns
 only give config file will won confluence a lot about the ddns . this is for my self memon 
 
-```
+```bash
 {
     "DhcpDdns": {
         "ip-address": "127.0.0.1",
