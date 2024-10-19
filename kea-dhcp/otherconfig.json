@@ -1,0 +1,46 @@
+{
+    "Dhcp4": {
+        // can load config from other file
+        <?include "/var/runningconf/dhcp4Expand.conf"?>
+        // set lease ip save db
+        "lease-database": {
+            "persist": true,
+            "type": "mysql",
+            "user": "root",
+            "password": "Hlj123456sql",
+            "host": "172.16.254.77",
+            "port": 3306,
+            "name": "dhcpdb",
+            "connect-timeout" : 5,
+            "max-reconnect-tries" : 3,
+            "reconnect-wait-time" : 2
+        },
+        // set assgin ip save db
+        "hosts-database": {
+            "persist": true,
+            "type": "mysql",
+            "user": "root",
+            "password": "Hlj123456sql",
+            "host": "172.16.254.77",
+            "port": 3306, 
+            "name": "dhcpdb",
+            "connect-timeout" : 5,
+            "max-reconnect-tries" : 3,
+            "reconnect-wait-time" : 2
+        },
+        // enable dhcp-ddns let other can use ddns change dns
+        "dhcp-ddns": {
+            "enable-updates": true,
+            "qualifying-suffix": "",
+            "server-ip" : "127.0.0.1",
+            "server-port": 53001,
+            "sender-ip": "",
+            "sender-port": 0,
+            "max-queue-size": 1024,
+            "ncr-protocol": "UDP",
+            "ncr-format": "JSON",
+            "override-no-update": false,
+            "override-client-update": false
+        }
+    }
+}

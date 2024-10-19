@@ -78,3 +78,49 @@ runKeaDHCP "$CONFIG_FILE_FULL_PATH"
 ```
 
 This is a configuration file that allows your DHCP server to run and enables clients to use network boot
+
+
+# ddns
+only give config file will won confluence a lot about the ddns . this is for my self memon 
+
+```
+{
+    "DhcpDdns": {
+        "ip-address": "127.0.0.1",
+        "port": 53001,
+        "dns-server-timeout": 100,
+        "ncr-protocol": "UDP",
+        "ncr-format": "JSON",
+        "tsig-keys": [
+            {
+            	// is a name that you require use that next
+                "name": "key_name",
+                // algorithm I give the value is HMAC-MD5
+                "algorithm": "HMAC-MD5",
+                // secret form your dns
+                "secret": "GRf05X2O543RfcI9stJYxLPpt6aJERqGHaBPManfMr4="
+            }
+        ],
+        "forward-ddns": {
+            "ddns-domains": [
+                {
+                    "name": "doman",
+                    "key-name": "key_name",
+                    "dns-servers": [
+                        {
+                            "hostname": "",
+                            "ip-address": "dnsserver_ip0",
+                            "port": 53
+                        },
+                        {
+                            "hostname": "",
+                            "ip-address": "dnsserver_ip1",
+                            "port": 53
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
