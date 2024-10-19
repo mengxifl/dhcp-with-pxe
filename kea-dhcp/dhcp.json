@@ -8,11 +8,13 @@
             ]
         },
         "client-classes": [
+            // after load boot file load . Then load XClinet_iPXE system
             {
                 "name": "XClient_iPXE",
                 "test": "substring(option[77].hex,0,4) == 'iPXE'",
                 "boot-file-name": "VAR_iPXE_NET_BOOT_FILE"
             },
+            // client first load boot file load
             {
                 "name": "UEFI-32-1",
                 "test": "substring(option[60].hex,0,20) == 'PXEClient:Arch:00006'",

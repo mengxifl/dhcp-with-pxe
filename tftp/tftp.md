@@ -13,3 +13,4 @@ in.tftpd --ipv4 --address 0.0.0.0:69  -L -vv -s --secure -s  /tftpfile
 
 I will not give your BOOT FILE. Tip Do not trust any file that requires root or administrator privileges to run. Please find it by yourself
 
+If you want those file please let me know.

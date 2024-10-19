@@ -13,3 +13,6 @@ It includes some components.
 ## nginx  a web server
   I use Nginx to host some files so that clients can retrieve the files they need from this server.
 
+## start steps
+
+client set to netboot ->  get an ipaddress and next server  -> get Boot file (dhcp.client-classes) -> Boot file will load(XClient_iPXE) -> auto load iPXE Menu (from self host http://<localhost>/bootfiles/ipxefile/index.ipxe) -> load system base kernel or Windows boot
