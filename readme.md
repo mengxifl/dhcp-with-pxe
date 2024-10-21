@@ -4,6 +4,7 @@ It includes some components.
 
 ## kea-dhcp
   Kea-DHCP is a DHCP server that I use to assign IP addresses to clients
+  
   https://github.com/mengxifl/dhcp-with-pxe/blob/main/kea-dhcp/kea-dhcp.md
 
 ## tftp server
@@ -13,6 +14,7 @@ It includes some components.
 
 ## nginx  a web server
   I use Nginx to host some files so that clients can retrieve the files they need from this server.
+  
   https://github.com/mengxifl/dhcp-with-pxe/blob/main/nginx/nginx.md
 ## start steps
 
