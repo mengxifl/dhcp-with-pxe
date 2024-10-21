@@ -22,3 +22,5 @@ client set to netboot ->  get an ipaddress and next server  -> get Boot file (dh
 
 ## I had configuerd a PXE.
    If you want to see that plese tell me
+   
+   https://github.com/mengxifl/myDhcpPxe
