@@ -8,7 +8,7 @@ It includes some components.
 
 ## tftp server
   I use this server to host so that  clients  can load those require file.
-
+  https://github.com/mengxifl/dhcp-with-pxe/blob/main/tftp/tftp.md
 
 ## nginx  a web server
   I use Nginx to host some files so that clients can retrieve the files they need from this server.
