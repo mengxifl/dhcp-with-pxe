@@ -20,7 +20,7 @@ It includes some components.
 
 client set to netboot ->  get an ipaddress and next server  -> get Boot file (dhcp.client-classes) -> Boot file will load(XClient_iPXE) -> auto load iPXE Menu (from self host http://<localhost>/bootfiles/ipxefile/index.ipxe) -> load system base kernel or Windows boot
 
-## I had configuerd a PXE.
-   If you want to see that plese tell me
-   
-   https://github.com/mengxifl/myDhcpPxe
+## The actual deployment
+
+The files behind this setup — boot files, answer files, post-install
+scripts and packages — are in [myDhcpPxe](https://github.com/mengxifl/myDhcpPxe).
